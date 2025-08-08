@@ -1,12 +1,7 @@
 import { Negociacoes } from "../models/negociacoes.js";
+import { Views } from "./views.js";
 
-export class NegociacoesView {
-
-    private elemento: HTMLElement;
-
-    constructor(seletor: string) {
-        this.elemento = document.querySelector(seletor);
-    }
+export class NegociacoesView extends Views<Negociacoes>{
 
     template(model: Negociacoes): string {
         return `
@@ -30,11 +25,5 @@ export class NegociacoesView {
                 <tbody>
                 </tbody>
         `
-    }
-
-    update(model: Negociacoes): void {
-        const template = this.template(model);
-        console.log(template)
-        this.elemento.innerHTML = template; 
     }
 }
